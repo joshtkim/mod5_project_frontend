@@ -1,0 +1,29 @@
+.dbMain{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.dbContainer{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #000;
+    align-content: space-between;
+}
+
+.dbCard{
+    display: flex;
+    width: 100%;
+    height: 20vh;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #000;
+}
