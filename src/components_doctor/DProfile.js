@@ -3,17 +3,18 @@ import React from 'react';
 class DProfile extends React.Component {
 
     render(){
+        let {name, dob, age, phone, extension, email, language, specialty} = this.props.loggedInUser
         return (
             <div>
                 <h1>DProfile</h1>
-                <h4>Name: {this.props.doctor.name}</h4>
-                <h4>DOB: {this.props.doctor.dob}</h4>
-                <h4>Age: {this.props.doctor.age}</h4>
-                <h4>Phone #: {this.props.doctor.phone}</h4>
-                <h4>Ext: {this.props.doctor.extension}</h4>
-                <h4>Email: {this.props.doctor.email}</h4>
-                <h4>Primary Language: {this.props.doctor.language}</h4>
-                <h4>Healthcare: {this.props.doctor.specialty}</h4>
+                <h4>Name: {name}</h4>
+                <h4>DOB: {dob}</h4>
+                <h4>Age: {age}</h4>
+                <h4>Phone #: {phone}</h4>
+                <h4>Ext: {extension}</h4>
+                <h4>Email: {email}</h4>
+                <h4>Primary Language: {language}</h4>
+                <h4>Healthcare: {specialty}</h4>
             </div>
 
         )
