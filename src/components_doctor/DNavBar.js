@@ -1,17 +1,22 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const DNavBar = () => {
+class DNavBar extends React.Component {
 
-  return (
-    <div className="navBar">
-      <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-      <li><NavLink to="/profile">Profile</NavLink></li>
-      <li><NavLink to="/form">Symptom Form</NavLink></li>
-      <li><NavLink to="/symptom">Detailed Symptom</NavLink></li>
-    </div>
-  );
+  handleClick = () => {
+    this.props.resetUser()
+  }
+
+  render(){
+    return (
+      <div className="navBar">
+        <li><NavLink to="/doctor/dashboard">Dashboard</NavLink></li>
+        <li><NavLink to="/doctor/profile">Profile</NavLink></li>
+        <li><NavLink to="/">Logout</NavLink></li>
+      </div>
+    );
+  }
+
 };
 
 export default DNavBar

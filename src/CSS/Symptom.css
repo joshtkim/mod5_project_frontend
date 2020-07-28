@@ -1,0 +1,17 @@
+.symptom-detailed{
+    display: block;
+    flex-direction: row;
+    border: 1px solid #000;
+    justify-content: space-evenly;
+    column-count: 2
+
+}
+
+
+.symptom-image{
+    display: block;
+    height: 700px;
+    width: 700px;
+    align-content: center;
+    /* border: 1px solid #000; */
+}

@@ -22,6 +22,7 @@ class VSignup extends React.Component {
     }
 
     handleSubmit = e => {
+        e.preventDefault()
         fetch("http://localhost:3000/doctors", {
             method: "POST",
             headers: {
@@ -32,8 +33,10 @@ class VSignup extends React.Component {
         .then(r => r.json())
         .then(newDoctor => {
             this.props.changeLoggedInUser(newDoctor)
+            this.props.handleSignedUp()
+            this.props.setUserType("doctor")
+            this.props.routerProps.history.push(`/doctor/dashboard`)
         })
-        this.props.setUserType("Doctor")
     }
 
 

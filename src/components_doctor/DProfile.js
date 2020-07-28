@@ -3,7 +3,7 @@ import React from 'react';
 class DProfile extends React.Component {
 
     render(){
-        let {name, dob, age, phone, extension, email, language, specialty} = this.props.loggedInUser
+        let {name, dob, age, phone, ext, email, language, specialty} = this.props.loggedInUser
         return (
             <div>
                 <h1>DProfile</h1>
@@ -11,10 +11,10 @@ class DProfile extends React.Component {
                 <h4>DOB: {dob}</h4>
                 <h4>Age: {age}</h4>
                 <h4>Phone #: {phone}</h4>
-                <h4>Ext: {extension}</h4>
+                <h4>Ext: {ext}</h4>
                 <h4>Email: {email}</h4>
                 <h4>Primary Language: {language}</h4>
-                <h4>Healthcare: {specialty}</h4>
+                <h4>Specialty: {specialty}</h4>
             </div>
 
         )

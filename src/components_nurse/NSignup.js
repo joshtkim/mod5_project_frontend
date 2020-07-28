@@ -22,6 +22,7 @@ class VSignup extends React.Component {
     }
 
     handleSubmit = e => {
+        e.preventDefault()
         fetch("http://localhost:3000/nurses", {
             method: "POST",
             headers: {
@@ -32,8 +33,10 @@ class VSignup extends React.Component {
         .then(r => r.json())
         .then(newNurse => {
             this.props.changeLoggedInUser(newNurse)
+            this.props.handleSignedUp()
+            this.props.setUserType("nurse")
+            this.props.routerProps.history.push(`/nurse/dashboard`)
         })
-        this.props.setUserType("Nurse")
     }
 
 
@@ -55,7 +58,7 @@ class VSignup extends React.Component {
                     <input placeholder="Primary Language" type="text" onChange={this.handleChange} value={this.state.language} name="language"></input>
                     <input placeholder="Specialty" type="text" onChange={this.handleChange} value={this.state.specialty} name="specialty"></input>
                     <input placeholder="Employee Code" name="code"></input>
-                    <input className="text" type="submit"/>
+                    <input type="submit"/>
                 </form>
             </div>
         )

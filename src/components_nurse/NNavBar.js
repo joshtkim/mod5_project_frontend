@@ -1,17 +1,23 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
-const NNavBar = () => {
+class NNavBar extends React.Component {
 
-  return (
-    <div className="navBar">
-      <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-      <li><NavLink to="/profile">Profile</NavLink></li>
-      <li><NavLink to="/form">Symptom Form</NavLink></li>
-      <li><NavLink to="/symptom">Detailed Symptom</NavLink></li>
-    </div>
-  );
+  handleClick = () => {
+    this.props.resetUser()
+  }
+
+  render(){
+    return (
+      <div className="navBar">
+        <li><NavLink to="/nurse/dashboard">Dashboard</NavLink></li>
+        <li><NavLink to="/nurse/profile">Profile</NavLink></li>
+        <li><NavLink to="/">Logout</NavLink></li>
+        {/* <li><NavLink to="/" onClick={handleClick}>Logout</NavLink></li> */}
+      </div>
+    );
+  }
+
 };
 
 export default NNavBar

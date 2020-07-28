@@ -33,8 +33,10 @@ class VSignup extends React.Component {
         .then(r => r.json())
         .then(newVisitor => {
             this.props.changeLoggedInUser(newVisitor)
+            this.props.handleSignedUp()
+            this.props.setUserType("visitor")
+            this.props.routerProps.history.push(`/visitor/dashboard`)
         })
-        this.props.setUserType("Visitor")
     }
 
 

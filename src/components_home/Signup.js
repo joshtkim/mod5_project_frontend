@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import VSignup from '../components_visitor/VSignup'
-import DSignup from '../components_doctor/DSignup'
-import NSignup from '../components_nurse/NSignup'
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 class Signup extends Component {
@@ -11,7 +10,7 @@ class Signup extends Component {
     }
 
     handleClick = (evt) => {
-        // this.props.setUserType(evt.target.name)
+        this.props.setUserType(evt.target.name)
         this.setState({
             user: evt.target.name
         })
@@ -22,29 +21,9 @@ class Signup extends Component {
         return (
             <div>
                 <h1>Signup</h1>
-                <button onClick={this.handleClick} name="Visitor">Visitor</button> 
-                <button onClick={this.handleClick} name="Nurse">Nurse</button> 
-                <button onClick={this.handleClick} name="Doctor">Doctor</button>
-                {this.state.user === "Visitor" ?
-                    <VSignup 
-                        changeLoggedInUser={this.props.changeLoggedInUser}
-                        setUserType={this.props.setUserType}
-                    />
-                :
-                this.state.user === "Nurse" ?
-                    <NSignup 
-                        changeLoggedInUser={this.props.changeLoggedInUser}
-                        setUserType={this.props.setUserType}
-                    />
-                :
-                this.state.user === "Doctor" ?
-                    <DSignup 
-                        changeLoggedInUser={this.props.changeLoggedInUser}
-                        setUserType={this.props.setUserType}
-                    />
-                :
-                    null
-                }
+                <li><NavLink onClick={this.handleClick} name='visitor' to="/signup/visitor">Visitor</NavLink></li>
+                <li><NavLink onClick={this.handleClick} name='nurse' to="/signup/nurse">Nurse</NavLink></li>
+                <li><NavLink onClick={this.handleClick} name='doctor' to="/signup/doctor">Doctor</NavLink></li>
             </div>
         )
     }
