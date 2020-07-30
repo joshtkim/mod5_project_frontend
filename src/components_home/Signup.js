@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
 
 
 class Signup extends Component {
@@ -14,16 +12,20 @@ class Signup extends Component {
         this.setState({
             user: evt.target.name
         })
+        this.props.routerProps.history.push(`/signup/${evt.target.name}`)
     }
     
 
     render() {
+        console.log(this.props)
         return (
-            <div>
-                <h1>Signup</h1>
-                <li><NavLink onClick={this.handleClick} name='visitor' to="/signup/visitor">Visitor</NavLink></li>
-                <li><NavLink onClick={this.handleClick} name='nurse' to="/signup/nurse">Nurse</NavLink></li>
-                <li><NavLink onClick={this.handleClick} name='doctor' to="/signup/doctor">Doctor</NavLink></li>
+            <div className="login">
+                <h2>Signup</h2>
+                <div className="login-button">
+                    <button onClick={this.handleClick} name="visitor">Visitor</button>
+                    <button onClick={this.handleClick} name="nurse">Nurse</button>
+                    <button onClick={this.handleClick} name="doctor">Doctor</button>
+                </div>
             </div>
         )
     }

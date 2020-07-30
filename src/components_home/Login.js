@@ -24,7 +24,7 @@ class Login extends Component {
         .then(r => r.json())
         .then(login => {
             this.props.changeLoggedInUser(login)
-            this.props.routerProps.history.push(`/${this.state.userType}`)
+            this.props.routerProps.history.push(`/${this.state.userType}/profile`)
         })
         this.props.setUserType(this.state.userType)
     }
@@ -44,12 +44,15 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <button onClick={this.handleClick} name="visitor">Visitor</button>
-                <button onClick={this.handleClick} name="nurse">Nurse</button>
-                <button onClick={this.handleClick} name="doctor">Doctor</button>
+            <div className="login">
+                <h2>Select one to login</h2>
+                <div className="login-button">
+                    <button onClick={this.handleClick} name="visitor">Visitor</button>
+                    <button onClick={this.handleClick} name="nurse">Nurse</button>
+                    <button onClick={this.handleClick} name="doctor">Doctor</button>
+                </div>
                 {this.state.clicked ? 
-                    <form onSubmit={this.handleLogin}>
+                    <form onSubmit={this.handleLogin} className="login-form">
                         <input placeholder="username" type="text" name="username" value={this.state.username} onChange={this.handleChange}></input>
                         <input placeholder="password" type="password"></input>
                         <button>Login</button>

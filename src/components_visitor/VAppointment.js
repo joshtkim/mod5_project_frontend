@@ -31,22 +31,23 @@ class VAppointment extends React.Component {
         })
         .then(r => r.json())
         .then(newAppt => {
-            this.props.setApptId(newAppt)
+            this.props.createApptId(newAppt)
         })
         this.props.routerProps.history.push('/visitor/symptom')
     }
 
     render(){
-        console.log(this.props.loggedInUser.id)
         return (
-            <div>
-                <h1>VAppointment</h1>
-                <form onSubmit={this.handleSubmit}>
+            <div className="appointment">
+                <h1>Book An Appointment</h1>
+                <div className="appt-form">
+                    <form onSubmit={this.handleSubmit}>
                     Reason for Visit: <input placeholder="Please explain the symptoms" name="visitor_symptom" value={this.state.visitor_symptom} onChange={this.handleChange}></input>
-                    <input placeholder="Please put date and time" type="date" name="date" value={this.state.date} onChange={this.handleChange}></input>
-                    <input placeholder="Please put date and time" type="time" name="time" value={this.state.time} onChange={this.handleChange}></input>
+                    Date: <input placeholder="Please put date and time" type="date" name="date" value={this.state.date} onChange={this.handleChange}></input>
+                    Time: <input placeholder="Please put date and time" type="time" name="time" value={this.state.time} onChange={this.handleChange}></input>
                     <input type="submit"/>
                 </form>
+                </div>
             </div>
 
         )

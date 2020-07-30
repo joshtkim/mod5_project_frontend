@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import './App.css';
+import './CSS/App.css';
 import './CSS/Dashboard.css'
 import './CSS/NavBar.css'
 import './CSS/Symptom.css'
@@ -54,10 +54,22 @@ class App extends React.Component {
 
   setApptId = (newAppt) => {
     this.setState({
-      apptId: newAppt.id
+      apptId: newAppt
     })
-    this.componentDidMount()
+    this.getAppt(newAppt)
   }
+
+  createApptId = (newAppt) => {
+    // let updatedAppt = [newAppt, ...this.state.loggedInUser.appointments]
+    // this.state.loggedInUser.appointments = updatedAppt
+
+    this.setState({
+      apptId: newAppt.id,
+    })
+    console.log(this.state.loggedInUser)
+  }
+
+  
 
   setUserType = (user) => {
     this.setState({
@@ -77,8 +89,8 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount = () => {
-    fetch(`http://localhost:3000/appointments/8`)
+  getAppt = (id) => {
+    fetch(`http://localhost:3000/appointments/${id}`)
     .then(r => r.json())
     .then(appt => {
       this.setState({
@@ -99,6 +111,7 @@ class App extends React.Component {
     return <Signup 
     changeLoggedInUser={this.changeLoggedInUser}
     setUserType = {this.setUserType}
+    routerProps = {routerProps}
     />
   }
   renderLogin = (routerProps) => {
@@ -132,7 +145,7 @@ class App extends React.Component {
     return <VAppointment
     routerProps={routerProps}
     loggedInUser={this.state.loggedInUser}
-    setApptId={this.setApptId}
+    createApptId={this.createApptId}
     />
   }
   renderVResult = (routerProps) => {
@@ -159,6 +172,7 @@ class App extends React.Component {
   renderNSymtpomDetailed = (routerProps) => {
     return <NSymptomDetailed
     appt={this.state.appt}
+    updatedUser={this.updatedUser}
     routerProps={routerProps}
     />
   }
@@ -200,79 +214,61 @@ class App extends React.Component {
     setUserType={this.setUserType}
     />
 }
-  renderDSignup = (routerProps) => {
-    return <DSignup 
-    routerProps = {routerProps}
-    changeLoggedInUser={this.changeLoggedInUser}
-    handleSignedUp={this.handleSignedUp}
-    setUserType={this.setUserType}
-    />
+renderDSignup = (routerProps) => {
+  return <DSignup 
+  routerProps = {routerProps}
+  changeLoggedInUser={this.changeLoggedInUser}
+  handleSignedUp={this.handleSignedUp}
+  setUserType={this.setUserType}
+  />
 }
 
 
   render() {
-    console.log(this.state.appt)
-    console.log(this.state.loggedInUser)
-    console.log(this.state.apptId)
     return (
       <Router>
         <div className="mainBox">
-          <h1>Welcome to Medinfo4U </h1>
-          <Route exact path="/" render={this.renderHome}/>
+          <div className="header">
+            <h1>MedInfo4U </h1>
+            <Route exact path="/" render={this.renderHome}/>
 
-          {this.state.userType === "visitor"  && this.state.signUp === false ?
-            <VNavBar 
-            resetUser={this.resetUser}/>
-            :
-            null}
+            {this.state.userType === "visitor"  && this.state.signUp === false ?
+              <VNavBar 
+              resetUser={this.resetUser}/>
+              :
+              null}
+            {this.state.userType === "nurse" && this.state.signUp === false ?
+              <NNavBar
+              resetUser={this.resetUser}/>
+              :
+              null}
+            {this.state.userType === "doctor" && this.state.signUp === false ?
+              <DNavBar            
+              resetUser={this.resetUser}/>
+              :
+              null}
+          </div>
           <Switch>
           <Route exact path="/visitor/dashboard" render={this.renderVDashboard}/>
           <Route exact path="/visitor/profile" render={this.renderVProfile}/>
           <Route exact path="/visitor/symptom" render={this.renderVSymtpomDetailed}/>
           <Route exact path="/visitor/appointment" render={this.renderVAppointment}/>
           <Route exact path="/visitor/result" render={this.renderVResult}/>
-          </Switch>
-
-          {this.state.userType === "nurse" && this.state.signUp === false ?
-          <NNavBar />
-          :
-          null}
-          <Switch>
           <Route exact path="/nurse/dashboard" render={this.renderNDashboard}/>
           <Route exact path="/nurse/profile" render={this.renderNProfile}/>
           <Route exact path="/nurse/symptom" render={this.renderNSymtpomDetailed}/>
           <Route exact path="/nurse/signup" render={this.renderNSignup}/>
-          </Switch>
-
-          {this.state.userType === "doctor" && this.state.signUp === false ?
-          <DNavBar />
-          :
-          null}
-          <Switch>
           <Route exact path="/doctor/dashboard" render={this.renderDDashboard}/>
           <Route exact path="/doctor/profile" render={this.renderDProfile}/>
           <Route exact path="/doctor/form" render={this.renderDSymptomForm}/>
           <Route exact path="/doctor/symptom" render={this.renderDSymtpomDetailed}/>
           <Route exact path="/doctor/signup" render={this.renderDSignup}/>
-          </Switch>
-
-          {this.state.signUp === true ?
-          <Signup 
-          changeLoggedInUser={this.changeLoggedInUser}
-          setUserType = {this.setUserType}
-          />
-          :
-          null}
-          <Switch>
+          <Route exact path="/login" render={this.renderLogin}/>
           <Route exact path="/signup/visitor" render={this.renderVSignup}/>
           <Route exact path="/signup/nurse" render={this.renderNSignup}/>
           <Route exact path="/signup/doctor" render={this.renderDSignup}/>
+          <Route exact path='/signup' render={this.renderSignUp}/>
           </Switch>
-
-          <div>
-          <Route exact path="/login" render={this.renderLogin}/>
-          </div>
-
         </div>
       </Router>
     );

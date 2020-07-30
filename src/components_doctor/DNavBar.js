@@ -10,9 +10,9 @@ class DNavBar extends React.Component {
   render(){
     return (
       <div className="navBar">
-        <li><NavLink to="/doctor/dashboard">Dashboard</NavLink></li>
-        <li><NavLink to="/doctor/profile">Profile</NavLink></li>
-        <li><NavLink to="/">Logout</NavLink></li>
+        <NavLink to="/doctor/dashboard">Dashboard</NavLink>
+        <NavLink to="/doctor/profile">Profile</NavLink>
+        <NavLink to="/" onClick={this.handleClick}>Logout</NavLink>
       </div>
     );
   }

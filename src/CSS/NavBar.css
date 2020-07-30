@@ -4,4 +4,22 @@ width: 100%;
 height: 10%;
 flex-direction: row;
 text-align: center;
+text-decoration: none;
+justify-content: space-evenly;
+}
+
+/* visited link */
+a:visited {
+color: black;
+}
+
+/* mouse over link */
+a:hover {
+color: blue;
+}
+
+a {  
+text-decoration: none;
+color: ivory;
+font-family: 'Bungee';
 }

@@ -12,9 +12,9 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-                <li><NavLink to="/login">Login</NavLink></li>
-                <li><NavLink to="/signup" onClick={this.handleSignup}>Signup</NavLink></li>
+            <div className="navBar">
+                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/signup" onClick={this.handleSignup}>Signup</NavLink>
             </div>
         )
     }

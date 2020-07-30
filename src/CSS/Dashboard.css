@@ -4,7 +4,8 @@
     height: 100%;
     flex-direction: column;
     text-align: center;
-    border: 1px solid #000;
+    align-content: center;
+    justify-content: center;
 }
 
 .dbContainer{
@@ -13,17 +14,50 @@
     height: 80%;
     flex-direction: column;
     text-align: center;
-    border: 1px solid #000;
-    align-content: space-between;
+    align-content: center;
+    justify-content: center;
 }
 
-.dbCard{
+.dbCardTrue{
     display: flex;
-    width: 100%;
-    height: 20vh;
+    width: 85%;
+    height: 10vh;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    border: 1px solid #000;
+    border-radius: 25px;
+    margin: 20px;
+    align-self: center;
+    background-color: rgb(218, 245, 255, .5);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dbCardTrue:hover{
+    background-color: rgb(218, 245, 255);
+    z-index: 2;
+    transform: scale(1.1)
+}
+
+.dbCardFalse{
+    display: flex;
+    width: 85%;
+    height: 10vh;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    border-radius: 25px;
+    margin: 20px;
+    align-self: center;
+    background-color: rgb(250, 255, 127, .5);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.dbCardFalse:hover{
+    background-color: rgb(250, 255, 127);
+    z-index: 2;
+    transform: scale(1.1)
 }

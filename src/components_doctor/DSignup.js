@@ -43,8 +43,8 @@ class VSignup extends React.Component {
 
     render(){
         return (
-            <div>
-                <h1>DSignup</h1>
+            <div className="main-signup">
+                <h1>Doctor's Signup</h1>
                 <h3>Please fill out the form below</h3>
                 <form onSubmit={this.handleSubmit}>
                     <input placeholder="Username" onChange={this.handleChange} value={this.state.username} name="username"></input>

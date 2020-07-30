@@ -1,0 +1,142 @@
+.mainBox{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: 'Bungee';
+}
+
+
+.profile{
+  display: flex;
+  width: 75vh;
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  margin: 10px;
+  align-self: center;
+  background-color: rgb(180, 220, 127, .2);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.nd-symptom{
+  display: flex;
+  width: 75vh;
+  height: 90%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  margin: 10px;
+  align-self: center;
+  background-color: rgb(180, 220, 127, .2);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.symptom-detail{
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.symptomForm{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  margin: 10px;
+}
+
+/* header */
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  border-radius: 25px;
+  padding-left: 25px;
+  background-color: rgb(114, 132, 168, .2)
+}
+
+/*result*/
+.result{
+  display: flex;
+  width: 75vh;
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  margin: 10px;
+  align-self: center;
+  background-color: rgb(180, 220, 127, .2);
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/* login */
+.login{
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button{
+  display:flex;
+  flex-direction: row;
+}
+
+.login-form{
+  display:flex;
+  flex-direction: row;
+  padding: 10px
+}
+
+/* Appt css */
+.appointment{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.appt-form{
+  display: flex;
+  width: 90%;
+  height: 50%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  border-radius: 25px;
+  margin: 10px;
+  align-self: center;
+  background-color: white;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.main-signup{
+  display: flex;
+  width: 100%;
+  height: 50%;
+  border-radius: 25px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(53, 129, 184, .2)
+}

@@ -176,14 +176,13 @@ class VSymptomDetailed extends React.Component {
         })
         .then(r => r.json())
         .then(console.log)
-        this.props.routerProps.history.push('/visitor/dashboard')
+        this.props.routerProps.history.push('/visitor/profile')
     }
 
     render(){
-        console.log(this.state.location)
         return (
             <div className="main-symptom-container">
-                    <h1>VSymptomDetailed</h1>
+                    <h1>Please explain your symptoms in detail</h1>
                 <div className="symptom-detailed">
                     <div className="symptom-image">
                         <img onClick={this.handleClick} src={body} alt="body silhouette"/>
