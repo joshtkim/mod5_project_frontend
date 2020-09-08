@@ -35,11 +35,19 @@ class DSymptomDetailed extends React.Component {
             <div className="nd-symptom">
                 <h1>{this.props.appt.visitor.name}'s Symptoms Detailed</h1>
                 <div className="symptom-detail">
-                    <h3>Appt Date: {this.props.appt.date}</h3>
-                    <h3>Time: {this.props.appt.time}</h3>
-                    <h3>Location: {this.props.appt.symptom.location}</h3>
-                    <h3>Reason For Visit: {this.props.appt.symptom.visitor_symptom}</h3>
-                    <h3>Nurse: {this.props.appt.observation}</h3>
+                    <h3>Date:</h3> <p>{this.props.appt.date}</p>
+                </div>
+                <div className="symptom-detail">
+                    <h3>Time:</h3> <p>{this.props.appt.time}</p>
+                </div>
+                <div className="symptom-detail">
+                     <h3>Location:</h3> <p>{this.props.appt.symptom.location}</p>
+                </div>
+                <div className="symptom-detail">
+                    <h3>Reason For Visit:</h3> <p>{this.props.appt.visitor_symptom}</p>
+                </div>
+                <div className="symptom-detail">
+                    <h3>Nurse:</h3> <p>{this.props.appt.observation}</p>
                 </div>
                 <div className="symptom-form">
                     <form onSubmit={this.handleSubmit}>

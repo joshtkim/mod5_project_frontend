@@ -7,10 +7,18 @@ class VResult extends React.Component {
         return (
             <div className="result">
                 <h1>Results</h1>
-                <h3>Date: {this.props.appt.date}</h3>
-                <h3>Location: {this.props.appt.symptom.location}</h3>
-                <h3>Reason For Visit: {this.props.appt.visitor_symptom}</h3>
-                <h3>Notes: {this.props.appt.public}</h3>
+                <div className="result-detail">
+                    <h3>Date:</h3> <p>{this.props.appt.date}</p>
+                </div>
+                <div className="result-detail">
+                     <h3>Location:</h3> <p>{this.props.appt.symptom.location}</p>
+                </div>
+                <div className="result-detail">
+                    <h3>Reason For Visit:</h3> <p>{this.props.appt.visitor_symptom}</p>
+                </div>
+                <div className="result-detail">
+                    <h3>Notes:</h3> <p>{this.props.appt.public}</p>
+                </div>
             </div>
             
         )

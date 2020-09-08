@@ -42,9 +42,15 @@ class VAppointment extends React.Component {
                 <h1>Book An Appointment</h1>
                 <div className="appt-form">
                     <form onSubmit={this.handleSubmit}>
-                    Reason for Visit: <input placeholder="Please explain the symptoms" name="visitor_symptom" value={this.state.visitor_symptom} onChange={this.handleChange}></input>
-                    Date: <input placeholder="Please put date and time" type="date" name="date" value={this.state.date} onChange={this.handleChange}></input>
-                    Time: <input placeholder="Please put date and time" type="time" name="time" value={this.state.time} onChange={this.handleChange}></input>
+                        <div className="reason">
+                            Reason for Visit: <input placeholder="Please explain the symptoms" name="visitor_symptom" value={this.state.visitor_symptom} onChange={this.handleChange}></input>
+                        </div>
+                        <div className="appt-form-input">
+                            Date: <input placeholder="Please put date and time" type="date" name="date" value={this.state.date} onChange={this.handleChange}></input>
+                        </div>
+                        <div className="appt-form-input">
+                            Time: <input placeholder="Please put date and time" type="time" name="time" value={this.state.time} onChange={this.handleChange}></input>
+                        </div> 
                     <input type="submit"/>
                 </form>
                 </div>
